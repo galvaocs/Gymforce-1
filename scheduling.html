@@ -1,0 +1,223 @@
+<!-- <?php
+
+require('Connection/connection.php');
+
+$db = new Connection();
+
+class OperationSchedule {
+    
+    public function schedule(){
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+            $FULL_NAME = $_POST['FULL_NAME'];
+            $EMAIL = $_POST['EMAIL'];
+            $AGE = $_POST['AGE'];
+            $SCHEDULING_DATE = $_POST['SCHEDULING_DATE'];
+
+            // // $limitAge = 80;
+
+            // // $today = new DateTime();
+            // // $minDate = $today->modify('+1 day')->format('Y-m-d');
+            // // $limitScheduling = 10;
+
+            // // $duplicationFlag = 0;
+            // // $duplicateName = "";
+            // // $duplicateEmail = "";
+
+            // // $msgError = "";
+            // // $schedulingStats = false;
+
+            // // $FULL_NAME = filter_var(trim($_POST['FULL_NAME']), FILTER_SANITIZE_STRING);
+            // // $EMAIL = filter_var(trim($_POST['EMAIL']), FILTER_SANITIZE_EMAIL);
+            // // if (!filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) {
+            // //     $schedulingStats = false;
+            // //     $msgError = "O email inserido é inválido!";
+                
+                
+            // // }
+
+            // // $conn = $db->getConnection();
+            // // $query = "SELECT * FROM scheduling WHERE FULL_NAME = :FULL_NAME AND EMAIL = :EMAIL";
+            // // $stmt = $conn->prepare($query);
+            // // $stmt->bindValue(':FULL_NAME', $FULL_NAME);
+            // // $stmt->bindValue(':EMAIL', $EMAIL);
+            // // $stmt->execute();
+            
+            // // $duplicates = array();
+            // // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // //     $duplicates[] = $row;
+            // // }
+
+            // // foreach ($duplicates as $duplicate) {
+            // //     if ($duplicate['FULL_NAME'] == $FULL_NAME && $duplicate['EMAIL'] == $EMAIL) {
+            // //         $duplicationFlag = 3;
+            // //         $duplicateName = $duplicate['FULL_NAME'];
+            // //         $duplicateEmail = $duplicate['EMAIL'];
+            // //     } elseif ($duplicate['FULL_NAME'] == $FULL_NAME) {
+            // //         $duplicationFlag = 1;
+            // //         $duplicateName = $duplicate['FULL_NAME'];
+            // //     } elseif ($duplicate['EMAIL'] == $EMAIL) {
+            // //         $duplicationFlag = 2;
+            // //         $duplicateEmail = $duplicate['EMAIL'];
+            // //     }
+            // // }
+
+            // // if ($duplicationFlag > 0) {
+            // //     switch ($duplicationFlag) {
+            // //         case 1:
+            // //             $schedulingStats = false;
+            // //             $msgError = "Já existe um agendamento com o Nome: ".$duplicateName."";
+                        
+            // //             break;
+            // //         case 2:
+            // //             $schedulingStats = false;
+            // //             $msgError = "Já existe um agendamento com o Email: ".$duplicateEmail."";
+                        
+            // //             break;
+            // //         case 3:
+            // //             $schedulingStats = false;
+            // //             $msgError = "Já existe um agendamento <br> com o Nome e Email: ".$duplicateName.", ".$duplicateEmail."";
+                        
+            // //             break;
+            // //     }
+            // // }
+            // // $AGE = $_POST['AGE'];
+            // // if ((strlen($AGE) !== 2) && ($AGE < $limitAge)) {
+            // //     $schedulingStats = false;
+            // //     $msgError = "O email inserido é inválido!";          
+            // // }       
+
+            // // $SCHEDULING_DATE = $_POST['SCHEDULING_DATE'];
+            // // if ($SCHEDULING_DATE < $minDate) {
+            // //     $schedulingStats = false;
+            // //     $msgError = "Insira uma data a partir de".$minDate."";           
+            // // }
+
+            // // $conn = $db->getConnection();
+            // // $query = "SELECT COUNT(*) as count FROM scheduling WHERE SCHEDULING_DATE = :scheduling_date";
+            // // $stmt = $conn->prepare($query);
+            // // $stmt->bindValue(':scheduling_date', $SCHEDULING_DATE);
+            // // $stmt->execute();
+
+            // // $CountScheduling = $stmt->fetchColumn();
+            // // if ($CountScheduling >= $limitScheduling) {
+            // //     $schedulingStats = false;
+            // //     $msgError = "O limite de agendamentos para data: ".$SCHEDULING_DATE." já foi atingido.";
+            // // }
+
+            // $conn = $db->getConnection();
+            // $query = "INSERT INTO scheduling (FULL_NAME, EMAIL, AGE, SCHEDULING_DATE) VALUES (:FULL_NAME, :EMAIL, :AGE, :SCHEDULING_DATE)";
+            // $stmt = $conn->prepare($query);
+
+            // $stmt->bindValue(':FULL_NAME', $FULL_NAME);
+            // $stmt->bindValue(':EMAIL', $EMAIL);
+            // $stmt->bindValue(':AGE', $AGE);
+            // $stmt->bindValue(':SCHEDULING_DATE', $SCHEDULING_DATE);
+
+            // // if ($stmt->execute()) {
+            // //     $schedulingStats = true;
+            // // } else {
+            // //     $schedulingStats = false;
+            // //     $msgError = "Erro ao inserir no banco de dados.";
+            // // }
+
+            // // if ($schedulingStats == false) {
+            // //     echo "<div class='alert-error'>";
+            // //     echo "<span class='bx bx-x'></span>";
+            // //     echo "<i class='bx bx-error-circle'></i>";
+            // //     echo "<h2>Erro! O agendamento <br>não foi realizado!</h2>";
+            // //     echo "<p>".$msgError."</p>";
+            // //     echo "</div>";
+            // // } else {
+            // //     echo "<div class='alert-success'>";
+            // //     echo "<span class='bx bx-x'></span>";
+            // //     echo "<i class='bx bx-check-circle'></i>";
+            // //     echo "<h2>Agendamento realizado <br> com sucesso!</h2>";
+            // //     echo "</div>";
+            // // }
+        }
+    }   
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style-scheduling.css">
+    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/nunito" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="png" syzes="32x32" href="img/gym-ad/zap-solid-24 (1).png">
+    <script defer src="Js/script-scheduling.js"></script>
+    <title>Agendamento</title>
+</head>
+    <body>
+        <div class="preloader"></div>
+        <header>
+            <nav>
+                <a href="index.html"><h2>GYM FORCE</h2></a>
+                <a href="services.html"><h3>Planos</h3></a>
+                <a href="supplements.html"><h3>Suplementos</h3></a>
+                <a href="scheduling.html"><h3>Agendamento</h3></a>
+            </nav>
+        </header>
+        <main>
+            <form method="POST" action="" autocomplete="off" class="scheduling-form">
+                <div class="dumbell">
+                    <h4>Realize seu <br> Agendamento!</h4>
+                </div>
+                <div class="form">
+                    <div class="wrap">
+                        <input type="text" class="field" name="FULL_NAME" autocomplete="off" required />
+                        <label for="FULL_NAME">Nome completo</label>
+                    </div>
+                    <div class="wrap">
+                        <input type="text" class="field" name="EMAIL" autocomplete="off" required />
+                        <label for="EMAIL">Email</label>
+                    </div>
+                    <div class="wrap">
+                        <input type="number" class="field" name="AGE" autocomplete="off" required />
+                        <label for="AGE">Idade</label>
+                    </div>
+                    <div class="wrap">
+                        <input type="date" class="date-field" name="SCHEDULING_DATE" min="<?php echo $minDate; ?>" autocomplete="off" required />
+                        <label for="SCHEDULING_DATE">Data do Agendamento</label>
+                    </div>
+                    <button type="button" class="schedule-button">Agendar</button>
+                    <p>
+                        Se cadastrando, eu concordo com os
+                        <a target="_blank" rel="noreferrer noopener" href="terms.html">Política de privacidade</a> e
+                        <a target="_blank" rel="noreferrer noopener" href="terms.html">Orientações</a>
+                    </p>
+                </div>
+                <div class="popup-confirm">
+                    <h2>Você tem certeza?</h2>
+                    <p class="popupP">Para que não hajam incongruências depois, recomendo que leia os <a target="_blank" rel="noreferrer noopener" href="terms.php">política de privacidade</a> e <a target="_blank" rel="noreferrer noopener" href="terms.php">orientações</a> para agendamento</p>
+                    <div class="popup-check">
+                        <input type="checkbox" name="confirm_terms" id="confirm_terms">
+                        <label for="confirm_terms" class="switch">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p class="checkP">Eu concordo com os termos de privacidade e li as orientações.</p>
+                    <div class="bottom-popup-box">
+                        <button type="button" class="denied-button">Cancelar</button>
+                        <input type="submit" value="Agendar" name="Agendar" class="confirm-button">
+                    </div>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <div class="contact">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+                <p>Curtiu? Quer fazer parte do nosso time? <br> Agende sua primeira aula <a class="shortcut" href="scheduling.php">aqui</a></p>
+            </div>
+        </footer>
+    </body>
+</html>
